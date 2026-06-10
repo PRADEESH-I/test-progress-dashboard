@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///C:/Users/prade/Downloads/progress_dashboard_18.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Test Progress — Creation + Execution Dashboard</title>
+<script src="./Test Progress — Creation + Execution Dashboard_files/pptxgen.bundle.js.download"></script>
+<script>if(typeof PptxGenJS==='undefined'){document.write('<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"><\/script>');}</script>
+<script>if(typeof PptxGenJS==='undefined'){document.write('<script src="https://unpkg.com/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"><\/script>');}</script>
+<style>
+:root{--navy:#1E3A5F;--teal:#0891B2;--green:#059669;--purple:#7C3AED;--blue:#2563EB;--indigo:#4F46E5;--rose:#E11D48;--amber:#D97706;--red:#DC2626;--slate:#475569;--ice:#F1F5F9;--light:#E2E8F0;--bg:#F8FAFC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Calibri,sans-serif;background:var(--bg);color:#0f172a;line-height:1.4;min-height:100vh}
+header{background:var(--navy);color:white;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+header h1{font-size:16px;font-weight:600;letter-spacing:.3px}
+header .meta{font-size:12px;opacity:.75;margin-top:2px}
+header .actions{display:flex;gap:8px;align-items:center}
+.btn{background:transparent;color:white;border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-primary{background:var(--teal);border-color:var(--teal);font-weight:600}
+.btn-primary:hover:not(:disabled){background:#0e7490;border-color:#0e7490}
+.btn-ghost{opacity:.7;font-size:12px}
+.lib-banner{background:#FEF2F2;color:var(--red);padding:10px 24px;font-size:13px;border-bottom:1px solid #FEE2E2;display:none}
+.lib-banner.show{display:block}
+main{display:grid;grid-template-columns:480px 1fr;min-height:calc(100vh - 56px)}
+aside.inputs{background:#F8FAFC;border-right:1px solid var(--light);overflow-y:auto;max-height:calc(100vh - 56px);padding:14px 14px 60px}
+.inputs-header{position:sticky;top:-14px;background:#F8FAFC;padding:6px 4px 12px;margin:-14px -14px 12px;border-bottom:1px solid var(--light);z-index:10}
+.slide-context-block{background:white;border:1px solid var(--light);border-radius:6px;margin-bottom:14px}
+.slide-context-block summary{padding:10px 12px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--navy);cursor:pointer;background:#EEF2FF;border-radius:5px}
+.slide-context-block[open] summary{border-radius:5px 5px 0 0;border-bottom:1px solid var(--light)}
+.mod-box{background:white;border:1px solid var(--light);border-radius:6px;margin-bottom:14px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.mod-box-header{display:flex;justify-content:space-between;align-items:center;padding:4px 0 10px;margin:-14px -16px 10px;padding:12px 16px;border-bottom:1px solid var(--light);background:#FAFBFC;border-radius:5px 5px 0 0}
+.mod-box-header h3{font-size:15px;font-weight:700;margin:0;padding-left:8px;letter-spacing:.3px}
+.mod-auto-summary{font-size:10px;color:var(--slate);font-weight:600}
+.mod-auto-summary b{color:var(--navy)}
+.mod-section-title{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--slate);margin-top:14px;margin-bottom:8px;text-transform:uppercase;border-top:1px dashed var(--light);padding-top:10px}
+.mod-section-title:first-of-type{margin-top:4px;border-top:none;padding-top:0}
+.mod-subgroup-title{font-size:9px;font-weight:700;letter-spacing:1px;margin-top:6px;margin-bottom:4px;text-transform:uppercase}
+.auto-tag{color:var(--teal);font-weight:600;font-size:9px}
+.hint{font-size:9px;color:var(--slate);font-style:italic;font-weight:400}
+section.preview-area{padding:20px;overflow-y:auto;max-height:calc(100vh - 56px)}
+.group{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--light)}
+.group:last-child{border-bottom:none}
+.group-title{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal);margin-bottom:10px;text-transform:uppercase}
+.field{margin-bottom:9px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:7px}
+.field-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:7px}
+label{display:block;font-size:10px;color:var(--slate);margin-bottom:3px;font-weight:500}
+input[type="text"],input[type="number"],textarea{width:100%;padding:5px 8px;border:1px solid var(--light);border-radius:4px;font-size:12px;font-family:inherit;background:white;color:#0f172a;transition:border-color .15s}
+input:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(8,145,178,.15)}
+textarea{min-height:46px;resize:vertical;line-height:1.4}
+.auto-field{background:#F0F9FF;font-weight:700;color:#0E7490}
+.slide-section{margin-bottom:28px}
+.slide-section-title{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--slate);margin-bottom:10px;text-transform:uppercase}
+.slide-wrap{background:white;border:1px solid var(--light);border-radius:8px;box-shadow:0 4px 16px rgba(15,23,42,.06);overflow:hidden;max-width:1200px;margin:0 auto}
+.save-status{font-size:11px;color:var(--slate);margin-top:8px;font-style:italic;text-align:center}
+.slide{aspect-ratio:1330/750;padding:18px 20px 0;background:white;font-size:10px;position:relative;display:flex;flex-direction:column}
+.slide-header h2{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.slide-header .sub{font-size:10px;color:var(--slate)}
+.section-label{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--teal);margin-top:10px;margin-bottom:5px}
+.cadence-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.cadence-card{background:var(--ice);border:1px solid var(--light);border-left:3px solid var(--teal);padding:6px 8px;border-radius:2px}
+.cadence-card.green{border-left-color:var(--green)}
+.cadence-card.purple{border-left-color:var(--purple)}
+.cadence-card.blue{border-left-color:var(--blue)}
+.cadence-card.indigo{border-left-color:var(--indigo)}
+.cadence-card.rose{border-left-color:var(--rose)}
+.cadence-card h3{font-size:11px;color:var(--navy);font-weight:700;margin-bottom:0}
+.cadence-card .meta{font-size:7.5px;color:var(--slate);margin-bottom:4px}
+.cadence-split{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.cadence-col .label-sm{font-size:6px;font-weight:700;letter-spacing:.5px;color:var(--slate);margin-bottom:0}
+.cadence-col .value{font-size:14px;font-weight:700;color:var(--navy);line-height:1}
+.cadence-col .value-small{font-size:7.5px;color:var(--slate);margin-left:1px;font-weight:400}
+.cadence-col .value-accent{font-size:10px;font-weight:700}
+.progress-bar{height:3px;background:var(--light);border-radius:2px;margin-top:3px;overflow:hidden}
+.progress-bar .fill{height:100%;transition:width .3s}
+.bar-note{font-size:6px;color:var(--slate);font-style:italic;margin-top:1px}
+.completion-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:9px}
+.completion-table th{font-size:7px;font-weight:700;color:var(--slate);letter-spacing:.5px;text-transform:uppercase;padding:3px 4px;text-align:left;border-bottom:2px solid var(--light);background:var(--ice)}
+.completion-table th.r{text-align:right}
+.completion-table th.c{text-align:center}
+.completion-table td{padding:4px 4px;border-bottom:1px solid var(--light);font-size:10px;color:var(--navy)}
+.completion-table td.module{font-weight:700;font-size:10px}
+.completion-table td.num{text-align:right;font-weight:700}
+.completion-table td.pct{text-align:right;color:var(--teal);font-weight:700}
+.completion-table tr.totals td{background:var(--ice);font-weight:700;border-top:2px solid var(--navy)}
+.kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.kpi-card{background:white;border:1px solid var(--light);border-top:3px solid var(--amber);padding:10px 14px;border-radius:2px}
+.kpi-card.defects{border-top-color:var(--red)}
+.kpi-head{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--navy);margin-bottom:4px}
+.kpi-number{font-size:32px;font-weight:700;color:var(--navy);line-height:1}
+.kpi-sub{font-size:9px;color:var(--slate);margin-top:2px}
+.kpi-breakdown{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap}
+.kpi-breakdown span{font-size:8px;color:var(--slate)}
+.kpi-breakdown span b{color:var(--navy);font-size:11px;margin-right:3px}
+.exec-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:9px}
+.exec-table th{font-size:7px;font-weight:700;color:white;background:var(--navy);padding:5px 4px;text-align:center;letter-spacing:.5px}
+.exec-table th.l{text-align:left}
+.exec-table th.def{background:var(--red)}
+.exec-table th .sub{display:block;font-size:6px;font-weight:500;color:#cbd5e1;margin-top:1px}
+.exec-table td{padding:4px 4px;border-bottom:1px solid var(--light);font-size:10px;color:var(--navy);text-align:center;font-weight:700}
+.exec-table td.module{font-weight:700;text-align:left;background:var(--ice);font-size:10px}
+.exec-table td.total-cell{background:var(--ice)}
+.exec-table tr.totals td{background:var(--navy);color:white;font-size:11px;font-weight:700;border-top:2px solid var(--navy)}
+.exec-table tr.totals td.module{color:white}
+/* Slide 3 — Status Summary & Timeline */
+.s3-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:8px;table-layout:fixed}
+/* New combined slide-1 table (Execution + Defects, 11 cols) */
+.s1-table{width:100%;border-collapse:collapse;margin-top:4px;font-size:9px;table-layout:fixed}
+.s1-table th{font-size:7px;font-weight:700;color:white;background:var(--navy);padding:5px 3px;text-align:center;letter-spacing:.3px;border:1px solid #fff;line-height:1.1}
+.s1-table th.l{text-align:left}
+.s1-table th.def{background:var(--red)}
+.s1-table th.grp-exec{background:#0E7490}
+.s1-table th.grp-def{background:var(--red)}
+.s1-table td{padding:4px 4px;border-bottom:1px solid var(--light);font-size:10px;color:var(--navy);text-align:center;font-weight:700}
+.s1-table td.s1-mod{text-align:left;background:var(--ice);font-weight:700;font-size:10px}
+.s1-table td.s1-exectotal{background:#CFFAFE;color:#0E7490}
+.s1-table td.s1-deftotal{background:#FEE2E2;color:var(--red)}
+.s1-table td.s1-totexec{background:var(--ice);color:var(--navy)}
+.s1-table tr.totals td{background:var(--navy);color:white;font-size:11px;font-weight:700;border-top:2px solid var(--navy)}
+.s1-table tr.totals td.s1-mod{color:white;background:var(--navy)}
+.s1-table tr.totals td.s1-exectotal{background:#0E7490;color:white}
+.s1-table tr.totals td.s1-deftotal{background:var(--red);color:white}
+.s1-table tr.totals td.s1-totexec{background:#0e7490;color:white}
+.s3-table th{font-size:8px;font-weight:700;color:white;background:#2563EB;padding:4px 3px;text-align:left;letter-spacing:.2px;border:1px solid #fff;vertical-align:middle;line-height:1.15}
+.s3-table td{padding:4px 4px;border:1px solid #D1D5DB;font-size:9px;color:var(--navy);text-align:left;vertical-align:top;line-height:1.25;font-weight:600}
+.s3-table tr:nth-child(even) td{background:#DBEAFE}
+.s3-table td.s3-mod{font-weight:700;font-size:10px}
+.s3-table td.s3-dep,.s3-table td.s3-deadline,.s3-table td.s3-date{font-size:8px;font-weight:400;line-height:1.2}
+.s3-note{margin-top:6px;font-size:9px;color:var(--navy);line-height:1.3;border-top:1px solid var(--light);padding-top:4px}
+.s3-note b{color:var(--navy)}
+.slide-footer{display:flex;justify-content:space-between;align-items:center;padding:4px 0 6px;font-size:9px;color:#000;margin-top:auto}
+.footer-left strong{font-weight:700}
+.footer-logo-img{height:28px;width:auto}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:white;padding:10px 18px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.2);opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none;z-index:200;max-width:360px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.err{background:var(--red)}
+@media (max-width:1100px){main{grid-template-columns:1fr}aside.inputs{max-height:none;border-right:none;border-bottom:1px solid var(--light)}section.preview-area{max-height:none}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Test Progress Dashboard — Creation + Execution</h1>
+    <div class="meta">NYC Health + Hospitals · 6-module tracker (2-slide PPTX)</div>
+  </div>
+  <div class="actions">
+    <button class="btn btn-ghost" id="resetBtn">Reset to defaults</button>
+    <button class="btn btn-primary" id="downloadBtn">⬇ Download 2-Slide PPTX</button>
+  </div>
+</header>
+<div class="lib-banner" id="libBanner">⚠ PPTX generator library couldn't load. Check connection &amp; refresh.</div>
+<main>
+<aside class="inputs">
+  <div class="inputs-header">
+    <div style="font-size:11px;font-weight:700;color:var(--navy);letter-spacing:1.5px">FILL IN ONE BOX PER MODULE</div>
+    <div style="font-size:9px;color:var(--slate);margin-top:2px">Numbers auto-save as you type. Field labels match slide column names. Auto-totals shown in blue boxes.</div>
+  </div>
+
+  <details class="slide-context-block" open="">
+    <summary>SLIDE CONTEXT (week label, status, etc.)</summary>
+    <div style="padding:10px 12px;background:#fff;border:1px solid var(--light)">
+      <div class="field-row">
+        <div><label>Week label</label><input type="text" id="weekLabel"></div>
+        <div><label>Business days remaining</label><input type="number" id="businessDaysRemaining" min="0"></div>
+      </div>
+      <div class="field"><label>Subtitle note (optional)</label><input type="text" id="subheaderNote"></div>
+      <div class="field-row">
+        <div><label>Last-week date range (e.g. "Until 22 May")</label><input type="text" id="lastWeekDateRange"></div>
+        <div><label>Execution status (right of section header)</label><input type="text" id="executionStatus"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Defects status (small italic note)</label><input type="text" id="defectsStatus"></div>
+        <div></div>
+      </div>
+    </div>
+  </details>
+
+    <div class="mod-box teal">
+      <div class="mod-box-header" style="border-left:5px solid #0891B2">
+        <h3 style="color:#0891B2">Absence</h3>
+        <div class="mod-auto-summary" id="absAutoSummary"><b>95</b> executed / <b>2,420</b> · <b>103</b> tickets logged · 4% coverage</div>
+      </div>
+
+      <div class="mod-section-title">Status Table</div>
+      <div class="field-row">
+        <div><label>Total Scripts</label><input type="number" id="absTotal" min="0"></div>
+        <div><label>Creation Completed</label><input type="number" id="absCreated" min="0"></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#0E7490">Execution</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="absInProgress" min="0"></div>
+        <div><label>Pass</label><input type="number" id="absExecutedPass" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Fail</label><input type="number" id="absExecutedFail" min="0"></div>
+        <div><label>Execution Total <span class="auto-tag">(auto)</span></label><input type="number" id="absExecuted" min="0" class="auto-field" readonly=""></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#DC2626">Jira Tickets</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="absJiraInProgress" min="0"></div>
+        <div><label>Resolved</label><input type="number" id="absJiraResolved" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Logged <span class="auto-tag">(auto = In Progress + Resolved)</span></label><input type="number" id="absJiraLogged" min="0" class="auto-field" readonly=""></div>
+        <div></div>
+      </div>
+
+      <div class="mod-section-title">Weekly Execution Cadence</div>
+      <div class="field-row">
+        <div><label>Executed up to last week</label><input type="number" id="absExecLastWeek" min="0"></div>
+        <div><label>This week target</label><input type="number" id="absExecWeekTarget" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>This week done</label><input type="number" id="absExecWeekDone" min="0"></div>
+        <div></div>
+      </div>
+
+    </div>
+
+    <div class="mod-box green">
+      <div class="mod-box-header" style="border-left:5px solid #059669">
+        <h3 style="color:#059669">Time and Labor</h3>
+        <div class="mod-auto-summary" id="tlAutoSummary"><b>50</b> executed / <b>1,429</b> · <b>0</b> tickets logged · 3% coverage</div>
+      </div>
+
+      <div class="mod-section-title">Status Table</div>
+      <div class="field-row">
+        <div><label>Total Scripts</label><input type="number" id="tlTotal" min="0"></div>
+        <div><label>Creation Completed</label><input type="number" id="tlCreated" min="0"></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#0E7490">Execution</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="tlInProgress" min="0"></div>
+        <div><label>Pass</label><input type="number" id="tlExecutedPass" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Fail</label><input type="number" id="tlExecutedFail" min="0"></div>
+        <div><label>Execution Total <span class="auto-tag">(auto)</span></label><input type="number" id="tlExecuted" min="0" class="auto-field" readonly=""></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#DC2626">Jira Tickets</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="tlJiraInProgress" min="0"></div>
+        <div><label>Resolved</label><input type="number" id="tlJiraResolved" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Logged <span class="auto-tag">(auto = In Progress + Resolved)</span></label><input type="number" id="tlJiraLogged" min="0" class="auto-field" readonly=""></div>
+        <div></div>
+      </div>
+
+      <div class="mod-section-title">Weekly Execution Cadence</div>
+      <div class="field-row">
+        <div><label>Executed up to last week</label><input type="number" id="tlExecLastWeek" min="0"></div>
+        <div><label>This week target</label><input type="number" id="tlExecWeekTarget" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>This week done</label><input type="number" id="tlExecWeekDone" min="0"></div>
+        <div></div>
+      </div>
+
+    </div>
+
+    <div class="mod-box purple">
+      <div class="mod-box-header" style="border-left:5px solid #7C3AED">
+        <h3 style="color:#7C3AED">Payroll</h3>
+        <div class="mod-auto-summary" id="payAutoSummary"><b>37</b> executed / <b>292</b> · <b>23</b> tickets logged · 13% coverage</div>
+      </div>
+
+      <div class="mod-section-title">Status Table</div>
+      <div class="field-row">
+        <div><label>Total Scripts</label><input type="number" id="payTotal" min="0"></div>
+        <div><label>Creation Completed</label><input type="number" id="payCreated" min="0"></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#0E7490">Execution</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="payInProgress" min="0"></div>
+        <div><label>Pass</label><input type="number" id="payExecutedPass" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Fail</label><input type="number" id="payExecutedFail" min="0"></div>
+        <div><label>Execution Total <span class="auto-tag">(auto)</span></label><input type="number" id="payExecuted" min="0" class="auto-field" readonly=""></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#DC2626">Jira Tickets</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="payJiraInProgress" min="0"></div>
+        <div><label>Resolved</label><input type="number" id="payJiraResolved" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Logged <span class="auto-tag">(auto = In Progress + Resolved)</span></label><input type="number" id="payJiraLogged" min="0" class="auto-field" readonly=""></div>
+        <div></div>
+      </div>
+
+      <div class="mod-section-title">Weekly Execution Cadence</div>
+      <div class="field-row">
+        <div><label>Executed up to last week</label><input type="number" id="payExecLastWeek" min="0"></div>
+        <div><label>This week target</label><input type="number" id="payExecWeekTarget" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>This week done</label><input type="number" id="payExecWeekDone" min="0"></div>
+        <div></div>
+      </div>
+
+    </div>
+
+    <div class="mod-box blue">
+      <div class="mod-box-header" style="border-left:5px solid #2563EB">
+        <h3 style="color:#2563EB">Core HR</h3>
+        <div class="mod-auto-summary" id="chrAutoSummary"><b>0</b> executed / <b>110</b> · <b>0</b> tickets logged · 0% coverage</div>
+      </div>
+
+      <div class="mod-section-title">Status Table</div>
+      <div class="field-row">
+        <div><label>Total Scripts</label><input type="number" id="chrTotal" min="0"></div>
+        <div><label>Creation Completed</label><input type="number" id="chrCreated" min="0"></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#0E7490">Execution</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="chrInProgress" min="0"></div>
+        <div><label>Pass</label><input type="number" id="chrExecutedPass" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Fail</label><input type="number" id="chrExecutedFail" min="0"></div>
+        <div><label>Execution Total <span class="auto-tag">(auto)</span></label><input type="number" id="chrExecuted" min="0" class="auto-field" readonly=""></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#DC2626">Jira Tickets</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="chrJiraInProgress" min="0"></div>
+        <div><label>Resolved</label><input type="number" id="chrJiraResolved" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Logged <span class="auto-tag">(auto = In Progress + Resolved)</span></label><input type="number" id="chrJiraLogged" min="0" class="auto-field" readonly=""></div>
+        <div></div>
+      </div>
+
+      <div class="mod-section-title">Weekly Execution Cadence</div>
+      <div class="field-row">
+        <div><label>Executed up to last week</label><input type="number" id="chrExecLastWeek" min="0"></div>
+        <div><label>This week target</label><input type="number" id="chrExecWeekTarget" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>This week done</label><input type="number" id="chrExecWeekDone" min="0"></div>
+        <div></div>
+      </div>
+
+    </div>
+
+    <div class="mod-box indigo">
+      <div class="mod-box-header" style="border-left:5px solid #4F46E5">
+        <h3 style="color:#4F46E5">Benefits</h3>
+        <div class="mod-auto-summary" id="benAutoSummary"><b>0</b> executed / <b>77</b> · <b>0</b> tickets logged · 0% coverage</div>
+      </div>
+
+      <div class="mod-section-title">Status Table</div>
+      <div class="field-row">
+        <div><label>Total Scripts</label><input type="number" id="benTotal" min="0"></div>
+        <div><label>Creation Completed</label><input type="number" id="benCreated" min="0"></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#0E7490">Execution</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="benInProgress" min="0"></div>
+        <div><label>Pass</label><input type="number" id="benExecutedPass" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Fail</label><input type="number" id="benExecutedFail" min="0"></div>
+        <div><label>Execution Total <span class="auto-tag">(auto)</span></label><input type="number" id="benExecuted" min="0" class="auto-field" readonly=""></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#DC2626">Jira Tickets</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="benJiraInProgress" min="0"></div>
+        <div><label>Resolved</label><input type="number" id="benJiraResolved" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Logged <span class="auto-tag">(auto = In Progress + Resolved)</span></label><input type="number" id="benJiraLogged" min="0" class="auto-field" readonly=""></div>
+        <div></div>
+      </div>
+
+      <div class="mod-section-title">Weekly Execution Cadence</div>
+      <div class="field-row">
+        <div><label>Executed up to last week</label><input type="number" id="benExecLastWeek" min="0"></div>
+        <div><label>This week target</label><input type="number" id="benExecWeekTarget" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>This week done</label><input type="number" id="benExecWeekDone" min="0"></div>
+        <div></div>
+      </div>
+
+    </div>
+
+    <div class="mod-box rose">
+      <div class="mod-box-header" style="border-left:5px solid #E11D48">
+        <h3 style="color:#E11D48">Compensation</h3>
+        <div class="mod-auto-summary" id="compAutoSummary"><b>0</b> executed / <b>23</b> · <b>0</b> tickets logged · 0% coverage</div>
+      </div>
+
+      <div class="mod-section-title">Status Table</div>
+      <div class="field-row">
+        <div><label>Total Scripts</label><input type="number" id="compTotal" min="0"></div>
+        <div><label>Creation Completed</label><input type="number" id="compCreated" min="0"></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#0E7490">Execution</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="compInProgress" min="0"></div>
+        <div><label>Pass</label><input type="number" id="compExecutedPass" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Fail</label><input type="number" id="compExecutedFail" min="0"></div>
+        <div><label>Execution Total <span class="auto-tag">(auto)</span></label><input type="number" id="compExecuted" min="0" class="auto-field" readonly=""></div>
+      </div>
+      <div class="mod-subgroup-title" style="color:#DC2626">Jira Tickets</div>
+      <div class="field-row">
+        <div><label>In Progress</label><input type="number" id="compJiraInProgress" min="0"></div>
+        <div><label>Resolved</label><input type="number" id="compJiraResolved" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>Logged <span class="auto-tag">(auto = In Progress + Resolved)</span></label><input type="number" id="compJiraLogged" min="0" class="auto-field" readonly=""></div>
+        <div></div>
+      </div>
+
+      <div class="mod-section-title">Weekly Execution Cadence</div>
+      <div class="field-row">
+        <div><label>Executed up to last week</label><input type="number" id="compExecLastWeek" min="0"></div>
+        <div><label>This week target</label><input type="number" id="compExecWeekTarget" min="0"></div>
+      </div>
+      <div class="field-row">
+        <div><label>This week done</label><input type="number" id="compExecWeekDone" min="0"></div>
+        <div></div>
+      </div>
+
+    </div>
+  <div class="save-status" id="saveStatus">Ready · PPTX engine loaded</div>
+</aside>
+<section class="preview-area">
+  <div class="slide-section">
+    <div class="slide-section-title">Slide 1 — Test Script Execution</div>
+    <div class="slide-wrap"><div class="slide" id="slide1Preview">
+    <div class="slide-header">
+      <h2>Test Script Execution — All Modules</h2>
+      <div class="sub">NYC Health + Hospitals &nbsp;|&nbsp; Week of 25 May – 29 May 2026 &nbsp;|&nbsp; 2 business days remaining</div>
+    </div>
+    <div>
+      <div class="section-label">WEEKLY EXECUTION CADENCE</div>
+      <div class="cadence-grid"><div class="cadence-card teal">
+      <h3>Absence</h3>
+      <div class="meta">2,420 scripts in scope</div>
+      <div class="cadence-split">
+        <div class="cadence-col">
+          <div class="label-sm">UNTIL LAST WK · Until 22 May</div>
+          <div class="value">58<span class="value-small"> executed</span></div>
+        </div>
+        <div class="cadence-col">
+          <div class="label-sm">THIS WK · TGT 80</div>
+          <div class="value">10<span class="value-small"> done · </span><span class="value-accent" style="color:#D97706">70</span></div>
+          <div class="progress-bar"><div class="fill" style="width:13%;background:#0891B2"></div></div>
+          <div class="bar-note">13% of target</div>
+        </div>
+      </div>
+    </div><div class="cadence-card green">
+      <h3>Time and Labor</h3>
+      <div class="meta">1,429 scripts in scope</div>
+      <div class="cadence-split">
+        <div class="cadence-col">
+          <div class="label-sm">UNTIL LAST WK · Until 22 May</div>
+          <div class="value">30<span class="value-small"> executed</span></div>
+        </div>
+        <div class="cadence-col">
+          <div class="label-sm">THIS WK · TGT 40</div>
+          <div class="value">12<span class="value-small"> done · </span><span class="value-accent" style="color:#059669">28</span></div>
+          <div class="progress-bar"><div class="fill" style="width:30%;background:#059669"></div></div>
+          <div class="bar-note">30% of target</div>
+        </div>
+      </div>
+    </div><div class="cadence-card purple">
+      <h3>Payroll</h3>
+      <div class="meta">292 scripts in scope</div>
+      <div class="cadence-split">
+        <div class="cadence-col">
+          <div class="label-sm">UNTIL LAST WK · Until 22 May</div>
+          <div class="value">11<span class="value-small"> executed</span></div>
+        </div>
+        <div class="cadence-col">
+          <div class="label-sm">THIS WK · TGT 20</div>
+          <div class="value">6<span class="value-small"> done · </span><span class="value-accent" style="color:#7C3AED">14</span></div>
+          <div class="progress-bar"><div class="fill" style="width:30%;background:#7C3AED"></div></div>
+          <div class="bar-note">30% of target</div>
+        </div>
+      </div>
+    </div><div class="cadence-card blue">
+      <h3>Core HR</h3>
+      <div class="meta">110 scripts in scope</div>
+      <div class="cadence-split">
+        <div class="cadence-col">
+          <div class="label-sm">UNTIL LAST WK · Until 22 May</div>
+          <div class="value">0<span class="value-small"> executed</span></div>
+        </div>
+        <div class="cadence-col">
+          <div class="label-sm">THIS WK · TGT 0</div>
+          <div class="value">0<span class="value-small"> done · </span><span class="value-accent" style="color:#2563EB">0</span></div>
+          <div class="progress-bar"><div class="fill" style="width:0%;background:#2563EB"></div></div>
+          <div class="bar-note">0% of target</div>
+        </div>
+      </div>
+    </div><div class="cadence-card indigo">
+      <h3>Benefits</h3>
+      <div class="meta">77 scripts in scope</div>
+      <div class="cadence-split">
+        <div class="cadence-col">
+          <div class="label-sm">UNTIL LAST WK · Until 22 May</div>
+          <div class="value">0<span class="value-small"> executed</span></div>
+        </div>
+        <div class="cadence-col">
+          <div class="label-sm">THIS WK · TGT 0</div>
+          <div class="value">0<span class="value-small"> done · </span><span class="value-accent" style="color:#4F46E5">0</span></div>
+          <div class="progress-bar"><div class="fill" style="width:0%;background:#4F46E5"></div></div>
+          <div class="bar-note">0% of target</div>
+        </div>
+      </div>
+    </div><div class="cadence-card rose">
+      <h3>Compensation</h3>
+      <div class="meta">23 scripts in scope</div>
+      <div class="cadence-split">
+        <div class="cadence-col">
+          <div class="label-sm">UNTIL LAST WK · Until 22 May</div>
+          <div class="value">0<span class="value-small"> executed</span></div>
+        </div>
+        <div class="cadence-col">
+          <div class="label-sm">THIS WK · TGT 0</div>
+          <div class="value">0<span class="value-small"> done · </span><span class="value-accent" style="color:#E11D48">0</span></div>
+          <div class="progress-bar"><div class="fill" style="width:0%;background:#E11D48"></div></div>
+          <div class="bar-note">0% of target</div>
+        </div>
+      </div>
+    </div></div>
+    </div>
+    <div style="margin-top:6px">
+      <div class="section-label">EXECUTION STATUS &amp; JIRA TICKETS BY MODULE  ·  In progress</div>
+      <table class="s1-table">
+        <thead>
+          <tr>
+            <th class="l" rowspan="2">Module</th>
+            <th rowspan="2">Total<br>Scripts</th>
+            <th rowspan="2">Creation<br>Completed</th>
+            <th class="grp-exec" colspan="4">Execution</th>
+            <th class="grp-def" colspan="3">Jira Tickets</th>
+          </tr>
+          <tr>
+            <th class="grp-exec">In Progress</th>
+            <th class="grp-exec">Pass</th>
+            <th class="grp-exec">Fail</th>
+            <th class="grp-exec">Total</th>
+            <th class="grp-def">In Progress</th>
+            <th class="grp-def">Resolved</th>
+            <th class="grp-def">Logged</th>
+          </tr>
+        </thead>
+        <tbody><tr>
+      <td class="s1-mod" style="color:#0891B2">Absence</td>
+      <td>2,420</td>
+      <td>2,076</td>
+      <td>27</td>
+      <td>7</td>
+      <td>61</td>
+      <td class="s1-exectotal">95</td>
+      <td>11</td>
+      <td>92</td>
+      <td class="s1-deftotal">103</td>
+    </tr><tr>
+      <td class="s1-mod" style="color:#059669">Time and Labor</td>
+      <td>1,429</td>
+      <td>1,197</td>
+      <td>50</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-exectotal">50</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-deftotal">0</td>
+    </tr><tr>
+      <td class="s1-mod" style="color:#7C3AED">Payroll</td>
+      <td>292</td>
+      <td>249</td>
+      <td>5</td>
+      <td>9</td>
+      <td>23</td>
+      <td class="s1-exectotal">37</td>
+      <td>0</td>
+      <td>23</td>
+      <td class="s1-deftotal">23</td>
+    </tr><tr>
+      <td class="s1-mod" style="color:#2563EB">Core HR</td>
+      <td>110</td>
+      <td>110</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-exectotal">0</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-deftotal">0</td>
+    </tr><tr>
+      <td class="s1-mod" style="color:#4F46E5">Benefits</td>
+      <td>77</td>
+      <td>43</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-exectotal">0</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-deftotal">0</td>
+    </tr><tr>
+      <td class="s1-mod" style="color:#E11D48">Compensation</td>
+      <td>23</td>
+      <td>23</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-exectotal">0</td>
+      <td>0</td>
+      <td>0</td>
+      <td class="s1-deftotal">0</td>
+    </tr>
+          <tr class="totals">
+            <td class="s1-mod">TOTAL</td>
+            <td>4,351</td>
+            <td>3,698</td>
+            <td>82</td>
+            <td>16</td>
+            <td>84</td>
+            <td class="s1-exectotal">182</td>
+            <td>11</td>
+            <td>115</td>
+            <td class="s1-deftotal">126</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="display:flex;justify-content:space-between;font-size:8px;font-style:italic;color:#475569;margin-top:4px;line-height:1.3">
+        <div><b>Creation in progress:</b> 3,698 of 4,351 scripts</div>
+        <div>Logged = In Progress + Resolved.</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="footer-left"><strong>1</strong> &nbsp;&nbsp; Confidential – © 2026 Oracle &amp; NYC Health + Hospitals Restricted</div>
+      <div><img class="footer-logo-img" src="data:image/png;base64,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" alt="logos"></div>
+    </div></div></div>
+  </div>
+  <div class="save-status">Download produces a 1-slide .pptx matching the preview above</div>
+</section>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const FOOTER_LOGO_B64 = "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";
+const FOOTER_LOGO_DATA_URL = "data:image/png;base64," + FOOTER_LOGO_B64;
+
+const MODULES = [
+  { id: 'abs',  label: 'Absence',        color: '0891B2', cls: 'teal'   },
+  { id: 'tl',   label: 'Time and Labor', color: '059669', cls: 'green'  },
+  { id: 'pay',  label: 'Payroll',        color: '7C3AED', cls: 'purple' },
+  { id: 'chr',  label: 'Core HR',        color: '2563EB', cls: 'blue'   },
+  { id: 'ben',  label: 'Benefits',       color: '4F46E5', cls: 'indigo' },
+  { id: 'comp', label: 'Compensation',   color: 'E11D48', cls: 'rose'   },
+];
+
+const DEFAULT_STATE = {
+  weekLabel: "Week of 25 May – 29 May 2026",
+  businessDaysRemaining: 2,
+  subheaderNote: "",
+  lastWeekDateRange: "Until 22 May",
+
+  // Per-module status counts (auto: Executed = IP+Pass+Fail)
+  absTotal: 2420, absCreated: 2076, absExecuted: 95, absInProgress: 27, absExecutedPass: 7, absExecutedFail: 61,
+  tlTotal:  1429, tlCreated:  1197, tlExecuted: 50, tlInProgress:  50, tlExecutedPass:  0, tlExecutedFail:  0,
+  payTotal: 292,  payCreated: 249,  payExecuted: 37, payInProgress: 5,  payExecutedPass: 9, payExecutedFail: 23,
+  chrTotal: 110,  chrCreated: 110,  chrExecuted: 0,  chrInProgress: 0,  chrExecutedPass: 0, chrExecutedFail: 0,
+  benTotal: 77,   benCreated: 43,   benExecuted: 0,  benInProgress: 0,  benExecutedPass: 0, benExecutedFail: 0,
+  compTotal: 23,  compCreated: 23,  compExecuted: 0, compInProgress: 0, compExecutedPass: 0, compExecutedFail: 0,
+
+  // Per-module Jira tickets (lifecycle: New = not started, In Progress = being worked, Resolved = closed)
+  absJiraInProgress: 11, absJiraResolved: 92,
+  absExecLastWeek: 58, absExecWeekTarget: 80, absExecWeekDone: 10,
+  tlJiraInProgress:  0, tlJiraResolved:  0,
+  tlExecLastWeek: 30, tlExecWeekTarget: 40, tlExecWeekDone: 12,
+  payJiraInProgress: 0, payJiraResolved: 23,
+  payExecLastWeek: 11, payExecWeekTarget: 20, payExecWeekDone: 6,
+  chrJiraInProgress: 0, chrJiraResolved: 0,
+  chrExecLastWeek: 0, chrExecWeekTarget: 0, chrExecWeekDone: 0,
+  benJiraInProgress: 0, benJiraResolved: 0,
+  benExecLastWeek: 0, benExecWeekTarget: 0, benExecWeekDone: 0,
+  compJiraInProgress: 0, compJiraResolved: 0,
+  compExecLastWeek: 0, compExecWeekTarget: 0, compExecWeekDone: 0,
+
+  executionStatus: "In progress",
+  defectsStatus: "Tracking ticket lifecycle",
+};
+
+const STORAGE_KEY = "test_progress_dashboard_v19";
+let state = { ...DEFAULT_STATE };
+
+function loadState(){try{const r=localStorage.getItem(STORAGE_KEY);if(r){state={...DEFAULT_STATE,...JSON.parse(r)}}}catch(e){console.warn(e)}}
+let saveTimer=null;
+function saveState(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));setSaveStatus("Saved · "+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}))}catch(e){setSaveStatus("Save failed — "+e.message)}},400)}
+function setSaveStatus(t){const el=document.getElementById("saveStatus");if(el)el.textContent=t}
+function toast(msg,err){const el=document.getElementById("toast");el.textContent=msg;el.classList.toggle("err",!!err);el.classList.add("show");setTimeout(()=>el.classList.remove("show"),err?4000:1800)}
+
+const NUMERIC_KEYS = ["businessDaysRemaining"];
+MODULES.forEach(m=>{
+  ["Total","Created","Executed",
+   "InProgress","ExecutedPass","ExecutedFail",
+   "JiraInProgress","JiraResolved","JiraLogged",
+   "ExecLastWeek","ExecWeekTarget","ExecWeekDone"]
+   .forEach(suf => NUMERIC_KEYS.push(m.id+suf));
+});
+const TEXT_KEYS = ["weekLabel","subheaderNote","lastWeekDateRange","executionStatus","defectsStatus"];
+const ALL_FIELDS = [...NUMERIC_KEYS, ...TEXT_KEYS];
+
+// Triggers that should recompute auto-totals (Execution Total, Jira Logged)
+const EXEC_TRIGGERS = [];
+MODULES.forEach(m=>{ EXEC_TRIGGERS.push(m.id+"InProgress"); EXEC_TRIGGERS.push(m.id+"ExecutedPass"); EXEC_TRIGGERS.push(m.id+"ExecutedFail"); });
+const DEF_TRIGGERS = [];
+MODULES.forEach(m=>{ DEF_TRIGGERS.push(m.id+"JiraInProgress"); DEF_TRIGGERS.push(m.id+"JiraResolved"); });
+// Total also affects auto-summary line
+MODULES.forEach(m=>{ EXEC_TRIGGERS.push(m.id+"Total"); EXEC_TRIGGERS.push(m.id+"Created"); });
+
+function bindInputs(){
+  ALL_FIELDS.forEach(k=>{
+    const el=document.getElementById(k); if(!el) return;
+    el.value = state[k];
+    el.addEventListener("input", () => {
+      const isNum = NUMERIC_KEYS.includes(k);
+      state[k] = isNum ? (el.value===""?0:Number(el.value)) : el.value;
+      if(EXEC_TRIGGERS.includes(k) || DEF_TRIGGERS.includes(k)) recomputeAutoTotals();
+      render(); saveState();
+    });
+  });
+}
+
+function recomputeAutoTotals(){
+  MODULES.forEach(m=>{
+    // Execution Total = In Progress + Pass + Fail
+    const ex = (state[m.id+"InProgress"]||0) + (state[m.id+"ExecutedPass"]||0) + (state[m.id+"ExecutedFail"]||0);
+    state[m.id+"Executed"] = ex;
+    const eEl = document.getElementById(m.id+"Executed");
+    if(eEl) eEl.value = ex;
+    // Jira Logged (Total) = In Progress + Resolved
+    const jIP = state[m.id+"JiraInProgress"]||0, jR = state[m.id+"JiraResolved"]||0;
+    const jLog = jIP + jR;
+    state[m.id+"JiraLogged"] = jLog;
+    const jEl = document.getElementById(m.id+"JiraLogged");
+    if(jEl) jEl.value = jLog;
+    // Auto-summary in module box header
+    const sumEl = document.getElementById(m.id+"AutoSummary");
+    if(sumEl){
+      const tot = state[m.id+"Total"]||0;
+      const covPct = tot>0 ? Math.round(ex/tot*100) : 0;
+      sumEl.innerHTML = `<b>${ex}</b> executed / <b>${tot.toLocaleString()}</b> · <b>${jLog}</b> tickets logged · ${covPct}% coverage`;
+    }
+  });
+}
+
+function pct(d,t){if(!t||t<=0)return 0;return Math.round((d/t)*100)}
+function clamp01(v){return Math.max(0,Math.min(1,v))}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+function renderSlide1(){
+  const s = state;
+  // Weekly Execution Cadence cards (execution-focused, not creation)
+  const cardsHTML = MODULES.map(m=>{
+    const tgt = s[m.id+"ExecWeekTarget"], done = s[m.id+"ExecWeekDone"];
+    const toGo = Math.max(0, tgt - done);
+    const pctW = pct(done, tgt);
+    const bar = `${clamp01(pctW/100)*100}%`;
+    const accent = m.color === '0891B2' ? 'D97706' : (m.color === '059669' ? '059669' : m.color);
+    return `<div class="cadence-card ${m.cls}">
+      <h3>${m.label}</h3>
+      <div class="meta">${s[m.id+"Total"].toLocaleString()} scripts in scope</div>
+      <div class="cadence-split">
+        <div class="cadence-col">
+          <div class="label-sm">UNTIL LAST WK · ${esc(s.lastWeekDateRange)}</div>
+          <div class="value">${s[m.id+"ExecLastWeek"]||0}<span class="value-small"> executed</span></div>
+        </div>
+        <div class="cadence-col">
+          <div class="label-sm">THIS WK · TGT ${tgt}</div>
+          <div class="value">${done}<span class="value-small"> done · </span><span class="value-accent" style="color:#${accent}">${toGo}</span></div>
+          <div class="progress-bar"><div class="fill" style="width:${bar};background:#${m.color}"></div></div>
+          <div class="bar-note">${pctW}% of target</div>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+
+  // Status & Defects table — 11 cols with 2-tier grouped header:
+  // Module | Total Scripts | Creation Completed | [Execution: IP, Pass, Fail, Total] | [Defects: Script, Data, Config, Total]
+  let tTotal=0, tCreated=0, tIP=0, tPass=0, tFail=0, tDD=0, tDC=0;
+  const rowsHTML = MODULES.map(m=>{
+    const tot = s[m.id+"Total"]||0, cr = s[m.id+"Created"]||0;
+    const ip = s[m.id+"InProgress"]||0, ps = s[m.id+"ExecutedPass"]||0, fl = s[m.id+"ExecutedFail"]||0;
+    const dd = s[m.id+"JiraInProgress"]||0, dc = s[m.id+"JiraResolved"]||0;
+    const execT = ip + ps + fl;
+    const defT = dd + dc;
+    tTotal += tot; tCreated += cr; tIP += ip; tPass += ps; tFail += fl;
+    tDD += dd; tDC += dc;
+    return `<tr>
+      <td class="s1-mod" style="color:#${m.color}">${m.label}</td>
+      <td>${tot.toLocaleString()}</td>
+      <td>${cr.toLocaleString()}</td>
+      <td>${ip}</td>
+      <td>${ps}</td>
+      <td>${fl}</td>
+      <td class="s1-exectotal">${execT}</td>
+      <td>${dd}</td>
+      <td>${dc}</td>
+      <td class="s1-deftotal">${defT}</td>
+    </tr>`;
+  }).join("");
+  const tExecTotal = tIP + tPass + tFail;
+  const tDefTotal = tDD + tDC;
+  const creationDone = tCreated >= tTotal;
+
+  document.getElementById("slide1Preview").innerHTML = `
+    <div class="slide-header">
+      <h2>Test Script Execution — All Modules</h2>
+      <div class="sub">NYC Health + Hospitals &nbsp;|&nbsp; ${esc(s.weekLabel)} &nbsp;|&nbsp; ${esc(s.businessDaysRemaining)} business days remaining${s.subheaderNote ? ` &nbsp;|&nbsp; ${esc(s.subheaderNote)}` : ''}</div>
+    </div>
+    <div>
+      <div class="section-label">WEEKLY EXECUTION CADENCE</div>
+      <div class="cadence-grid">${cardsHTML}</div>
+    </div>
+    <div style="margin-top:6px">
+      <div class="section-label">EXECUTION STATUS &amp; JIRA TICKETS BY MODULE  ·  ${esc(s.executionStatus)}</div>
+      <table class="s1-table">
+        <thead>
+          <tr>
+            <th class="l" rowspan="2">Module</th>
+            <th rowspan="2">Total<br>Scripts</th>
+            <th rowspan="2">Creation<br>Completed</th>
+            <th class="grp-exec" colspan="4">Execution</th>
+            <th class="grp-def" colspan="3">Jira Tickets</th>
+          </tr>
+          <tr>
+            <th class="grp-exec">In Progress</th>
+            <th class="grp-exec">Pass</th>
+            <th class="grp-exec">Fail</th>
+            <th class="grp-exec">Total</th>
+            <th class="grp-def">In Progress</th>
+            <th class="grp-def">Resolved</th>
+            <th class="grp-def">Logged</th>
+          </tr>
+        </thead>
+        <tbody>${rowsHTML}
+          <tr class="totals">
+            <td class="s1-mod">TOTAL</td>
+            <td>${tTotal.toLocaleString()}</td>
+            <td>${tCreated.toLocaleString()}</td>
+            <td>${tIP}</td>
+            <td>${tPass}</td>
+            <td>${tFail}</td>
+            <td class="s1-exectotal">${tExecTotal}</td>
+            <td>${tDD}</td>
+            <td>${tDC}</td>
+            <td class="s1-deftotal">${tDefTotal}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="display:flex;justify-content:space-between;font-size:8px;font-style:italic;color:#475569;margin-top:4px;line-height:1.3">
+        <div>${creationDone ? '<b style="color:#059669">✓ Creation complete</b> across all modules ('+tCreated.toLocaleString()+' / '+tTotal.toLocaleString()+' scripts, 100%)' : '<b>Creation in progress:</b> '+tCreated.toLocaleString()+' of '+tTotal.toLocaleString()+' scripts'}</div>
+        <div>Logged = In Progress + Resolved.</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="footer-left"><strong>1</strong> &nbsp;&nbsp; Confidential – © 2026 Oracle &amp; NYC Health + Hospitals Restricted</div>
+      <div><img class="footer-logo-img" src="${FOOTER_LOGO_DATA_URL}" alt="logos"></div>
+    </div>`;
+}
+
+function render(){
+  renderSlide1();
+}
+
+async function generatePPTX(){
+  if(typeof PptxGenJS==='undefined'){ toast("PPTX library didn't load. Refresh the page.", true); return; }
+  const btn = document.getElementById("downloadBtn");
+  const oLbl = btn.textContent;
+  btn.disabled = true; btn.textContent = "⏳ Generating...";
+  try{
+    const s = state;
+    const pres = new PptxGenJS();
+    pres.layout = 'LAYOUT_WIDE';
+    pres.title = 'Test Script Progress';
+
+    const NAVY="1E3A5F",TEAL="0891B2",AMBER="D97706",GREEN="059669",PURPLE="7C3AED",BLUE="2563EB",INDIGO="4F46E5",ROSE="E11D48",RED="DC2626",SLATE="475569",ICE="F1F5F9",LIGHT="E2E8F0";
+
+    // ============ SLIDE 1 — TEST SCRIPT EXECUTION (combined) ============
+    const sl1 = pres.addSlide();
+    sl1.background = { color: "FFFFFF" };
+
+    sl1.addText("Test Script Execution — All Modules", {
+      x: 0.5, y: 0.2, w: 12.3, h: 0.42,
+      fontSize: 22, fontFace:"Calibri", bold: true, color: NAVY, margin: 0
+    });
+    const subH = `NYC Health + Hospitals   |   ${s.weekLabel}   |   ${s.businessDaysRemaining} business days remaining${s.subheaderNote ? `   |   ${s.subheaderNote}` : ''}`;
+    sl1.addText(subH, { x: 0.5, y: 0.65, w: 12.3, h: 0.28, fontSize: 11, fontFace:"Calibri", color: SLATE, margin: 0 });
+
+    sl1.addText("WEEKLY EXECUTION CADENCE", { x: 0.5, y: 1.0, w: 12.3, h: 0.22, fontSize: 10, bold: true, color: TEAL, charSpacing: 3, margin: 0 });
+
+    // 6 cadence cards — execution-focused (target/done/% of target this week)
+    const cardW = 4.05, cardGap = 0.1, cardH = 1.35;
+    const colX = [0.5, 0.5 + cardW + cardGap, 0.5 + 2*(cardW+cardGap)];
+    const row1Y = 1.25, row2Y = row1Y + cardH + 0.12;
+    function drawExecCadence(idx, m, y){
+      const x = colX[idx];
+      const total = s[m.id+"Total"];
+      const last = s[m.id+"ExecLastWeek"]||0, tgt = s[m.id+"ExecWeekTarget"]||0, done = s[m.id+"ExecWeekDone"]||0;
+      const toGo = Math.max(0, tgt - done);
+      const frac = tgt>0 ? Math.min(1, done/tgt) : 0;
+      const pctW = Math.round(frac*100);
+      sl1.addShape(pres.shapes.RECTANGLE, { x, y, w: cardW, h: cardH, fill:{color:ICE}, line:{color:LIGHT, width:0.5} });
+      sl1.addShape(pres.shapes.RECTANGLE, { x, y, w: 0.07, h: cardH, fill:{color: m.color}, line:{type:"none"} });
+      sl1.addText(m.label, { x: x+0.18, y: y+0.05, w: cardW-0.25, h: 0.28, fontSize: 13, fontFace:"Calibri", bold: true, color: NAVY, margin: 0 });
+      sl1.addText(`${total.toLocaleString()} scripts in scope`, { x: x+0.18, y: y+0.31, w: cardW-0.25, h: 0.18, fontSize: 8, fontFace:"Calibri", color: SLATE, margin: 0 });
+      const cW = (cardW - 0.4) / 2;
+      const c1X = x + 0.18;
+      const c2X = x + 0.18 + cW + 0.05;
+      sl1.addText(`UNTIL LAST WK · ${s.lastWeekDateRange.toUpperCase()}`, { x: c1X, y: y+0.52, w: cW, h: 0.16, fontSize: 6, bold: true, color: SLATE, charSpacing: 1, margin: 0 });
+      sl1.addText([
+        { text: String(last), options: { fontSize: 16, bold: true, color: NAVY } },
+        { text: " executed", options: { fontSize: 8, color: SLATE } }
+      ], { x: c1X, y: y+0.68, w: cW, h: 0.34, margin: 0 });
+      sl1.addText(`THIS WK · TGT ${tgt}`, { x: c2X, y: y+0.52, w: cW, h: 0.16, fontSize: 6, bold: true, color: SLATE, charSpacing: 1, margin: 0 });
+      sl1.addText([
+        { text: String(done), options: { fontSize: 15, bold: true, color: NAVY } },
+        { text: " done · ", options: { fontSize: 8, color: SLATE } },
+        { text: String(toGo), options: { fontSize: 11, bold: true, color: AMBER } }
+      ], { x: c2X, y: y+0.68, w: cW, h: 0.34, margin: 0 });
+      const barW = cW * 0.85;
+      sl1.addShape(pres.shapes.RECTANGLE, { x: c2X, y: y+1.04, w: barW, h: 0.07, fill:{color:LIGHT}, line:{type:"none"} });
+      if(frac>0) sl1.addShape(pres.shapes.RECTANGLE, { x: c2X, y: y+1.04, w: barW*frac, h: 0.07, fill:{color:m.color}, line:{type:"none"} });
+      sl1.addText(`${pctW}% of target`, { x: c2X, y: y+1.13, w: cW, h: 0.16, fontSize: 6, italic: true, color: SLATE, margin: 0 });
+    }
+    MODULES.forEach((m,i) => {
+      const row = Math.floor(i/3), col = i%3;
+      drawExecCadence(col, m, row===0 ? row1Y : row2Y);
+    });
+
+    // Status & Defects table
+    let tTotal=0, tCreated=0, tIP=0, tPass=0, tFail=0, tDD=0, tDC=0;
+    MODULES.forEach(m=>{
+      const tot=s[m.id+"Total"]||0, cr=s[m.id+"Created"]||0;
+      const ip=s[m.id+"InProgress"]||0, ps=s[m.id+"ExecutedPass"]||0, fl=s[m.id+"ExecutedFail"]||0;
+      const dd=s[m.id+"JiraInProgress"]||0, dc=s[m.id+"JiraResolved"]||0;
+      tTotal+=tot; tCreated+=cr; tIP+=ip; tPass+=ps; tFail+=fl;
+      tDD+=dd; tDC+=dc;
+    });
+    const tExecTotal = tIP+tPass+tFail;
+    const tDefTotal = tDD+tDC;
+    const creationDone = tCreated >= tTotal;
+
+    const tblY = row2Y + cardH + 0.16;
+    sl1.addText(`EXECUTION STATUS & JIRA TICKETS BY MODULE  ·  ${s.executionStatus}`, { x: 0.5, y: tblY, w: 8, h: 0.22, fontSize: 10, bold: true, color: TEAL, charSpacing: 3, margin: 0 });
+    const summaryNote = creationDone
+      ? `Creation complete: ${tCreated.toLocaleString()} / ${tTotal.toLocaleString()} (100%)`
+      : `Creation: ${tCreated.toLocaleString()} of ${tTotal.toLocaleString()}`;
+    sl1.addText(summaryNote, { x: 8.6, y: tblY, w: 4.2, h: 0.22, fontSize: 8.5, italic: true, bold: true, color: GREEN, margin: 0, align: "right" });
+
+    // Header — 2-tier with grouped super-headers:
+    //   Row 1: Module | Total Scripts | Creation Completed | [Execution colspan=4]    | [Defects colspan=4]
+    //   Row 2: (merged)| (merged)     | (merged)           | IP | Pass | Fail | Total | Script | Data | Config | Total
+    const EXEC_GRP = "0E7490";
+    const DEF_GRP  = "DC2626";
+    const hMain   = { bold:true, color:"FFFFFF", fontSize:9, fill:{color:NAVY}, align:"center", valign:"middle", border: [{ pt:0.5, color:"FFFFFF" },{ pt:0.5, color:"FFFFFF" },{ pt:0.5, color:"FFFFFF" },{ pt:0.5, color:"FFFFFF" }] };
+    const hMainL  = { ...hMain, align:"left" };
+    const hExec   = { ...hMain, fill:{color:EXEC_GRP} };
+    const hDef    = { ...hMain, fill:{color:DEF_GRP} };
+    const hSub    = { bold:true, color:"FFFFFF", fontSize:8, fill:{color:NAVY}, align:"center", valign:"middle", border: [{ pt:0.5, color:"FFFFFF" },{ pt:0.5, color:"FFFFFF" },{ pt:0.5, color:"FFFFFF" },{ pt:0.5, color:"FFFFFF" }] };
+    const hSubExec= { ...hSub, fill:{color:EXEC_GRP} };
+    const hSubDef = { ...hSub, fill:{color:DEF_GRP} };
+
+    const cOpt = { color:NAVY, fontSize:10, align:"center", valign:"middle", bold:true };
+    const cOptL = { ...cOpt, align:"left" };
+    const cOptExecT = { ...cOpt, fill:{color:"CFFAFE"}, color:"0E7490" };  // exec total cell
+    const cOptDefT  = { ...cOpt, fill:{color:"FEE2E2"}, color:"DC2626" };  // def total cell
+
+    const exRows = [
+      // Row 1 — super-headers (colspans)
+      [
+        { text: "Module",              options: { ...hMainL, rowspan: 2 } },
+        { text: "Total\nScripts",      options: { ...hMain,  rowspan: 2 } },
+        { text: "Creation\nCompleted", options: { ...hMain,  rowspan: 2 } },
+        { text: "Execution",           options: { ...hExec,  colspan: 4 } },
+        { text: "Jira Tickets",        options: { ...hDef,   colspan: 3 } },
+      ],
+      // Row 2 — sub-headers (under the colspans)
+      [
+        { text: "In Progress",   options: hSubExec },
+        { text: "Pass",          options: hSubExec },
+        { text: "Fail",          options: hSubExec },
+        { text: "Total",         options: hSubExec },
+        { text: "In Progress",   options: hSubDef },
+        { text: "Resolved",      options: hSubDef },
+        { text: "Logged",        options: hSubDef },
+      ],
+    ];
+
+    MODULES.forEach(m=>{
+      const tot=s[m.id+"Total"]||0, cr=s[m.id+"Created"]||0;
+      const ip=s[m.id+"InProgress"]||0, ps=s[m.id+"ExecutedPass"]||0, fl=s[m.id+"ExecutedFail"]||0;
+      const dd=s[m.id+"JiraInProgress"]||0, dc=s[m.id+"JiraResolved"]||0;
+      const execT = ip + ps + fl;
+      const dT = dd+dc;
+      exRows.push([
+        { text: m.label, options: {...cOptL, color: m.color, fill:{color:ICE}} },
+        { text: tot.toLocaleString(), options: cOpt },
+        { text: cr.toLocaleString(), options: cOpt },
+        { text: String(ip), options: cOpt },
+        { text: String(ps), options: cOpt },
+        { text: String(fl), options: cOpt },
+        { text: String(execT), options: cOptExecT },
+        { text: String(dd), options: cOpt },
+        { text: String(dc), options: cOpt },
+        { text: String(dT), options: cOptDefT },
+      ]);
+    });
+
+    const totT = { bold:true, color:"FFFFFF", fontSize:11, fill:{color:NAVY}, align:"center", valign:"middle" };
+    const totTL = { ...totT, align:"left" };
+    const totTExec = { ...totT, fill:{color:EXEC_GRP} };
+    const totTDef  = { ...totT, fill:{color:DEF_GRP}  };
+    exRows.push([
+      { text:"TOTAL", options: totTL },
+      { text: tTotal.toLocaleString(), options: totT },
+      { text: tCreated.toLocaleString(), options: totT },
+      { text: String(tIP), options: totT },
+      { text: String(tPass), options: totT },
+      { text: String(tFail), options: totT },
+      { text: String(tExecTotal), options: totTExec },
+      { text: String(tDD), options: totT },
+      { text: String(tDC), options: totT },
+      { text: String(tDefTotal), options: totTDef },
+    ]);
+
+    sl1.addTable(exRows, {
+      x: 0.5, y: tblY + 0.27, w: 12.3,
+      colW: [1.45, 0.95, 1.10, 0.95, 0.95, 0.95, 1.05, 1.25, 1.25, 1.40],
+      border: { type: "solid", color: LIGHT, pt: 0.5 },
+      rowH: 0.22,
+    });
+
+    // Footer slide 1
+    sl1.addText([
+      { text: "1", options:{ bold:true, color:"000000", fontSize:9 } },
+      { text: "     Confidential – © 2026 Oracle & NYC Health + Hospitals Restricted", options:{ color:"000000", fontSize:9 } }
+    ], { x: 0.3, y: 7.12, w: 9, h: 0.3, margin: 0 });
+    const logoH = 0.55, logoW = logoH * (285/72);
+    sl1.addImage({ data: FOOTER_LOGO_DATA_URL, x: 13.1 - logoW, y: 6.95, w: logoW, h: logoH });
+
+    const today = new Date().toISOString().slice(0,10);
+    await pres.writeFile({ fileName: `test_progress_${today}.pptx` });
+    toast("PPTX downloaded ✓");
+  } catch(err){
+    console.error("PPTX generation failed:", err);
+    toast("Download failed: " + (err.message || err), true);
+  } finally {
+    btn.disabled = false; btn.textContent = oLbl;
+  }
+}
+
+function resetDefaults(){
+  if(!confirm("Reset all fields to defaults? Saved data will be overwritten.")) return;
+  state = { ...DEFAULT_STATE };
+  ALL_FIELDS.forEach(k=>{ const el=document.getElementById(k); if(el) el.value=state[k]; });
+  recomputeAutoTotals(); render(); saveState(); toast("Reset to defaults");
+}
+
+function init(){
+  loadState(); bindInputs(); recomputeAutoTotals(); render();
+  document.getElementById("downloadBtn").addEventListener("click", generatePPTX);
+  document.getElementById("resetBtn").addEventListener("click", resetDefaults);
+  window.addEventListener('load', () => {
+    if(typeof PptxGenJS==='undefined'){
+      document.getElementById('libBanner').classList.add('show');
+      document.getElementById('downloadBtn').disabled = true;
+    } else {
+      setSaveStatus("Ready · PPTX engine loaded");
+    }
+  });
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
+else init();
+</script>
+
+
+</body></html>
