@@ -6,6 +6,9 @@
 <script src="./Test Progress — Creation + Execution Dashboard_files/pptxgen.bundle.js.download"></script>
 <script>if(typeof PptxGenJS==='undefined'){document.write('<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"><\/script>');}</script>
 <script>if(typeof PptxGenJS==='undefined'){document.write('<script src="https://unpkg.com/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"><\/script>');}</script>
+<!-- Firebase Realtime Database — live multi-user editing -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 <style>
 :root{--navy:#1E3A5F;--teal:#0891B2;--green:#059669;--purple:#7C3AED;--blue:#2563EB;--indigo:#4F46E5;--rose:#E11D48;--amber:#D97706;--red:#DC2626;--slate:#475569;--ice:#F1F5F9;--light:#E2E8F0;--bg:#F8FAFC}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -729,6 +732,7 @@ function bindInputs(){
       state[k] = isNum ? (el.value===""?0:Number(el.value)) : el.value;
       if(EXEC_TRIGGERS.includes(k) || DEF_TRIGGERS.includes(k)) recomputeAutoTotals();
       render(); saveState();
+      fbPush(k, state[k]);
     });
   });
 }
@@ -1066,11 +1070,92 @@ function resetDefaults(){
   if(!confirm("Reset all fields to defaults? Saved data will be overwritten.")) return;
   state = { ...DEFAULT_STATE };
   ALL_FIELDS.forEach(k=>{ const el=document.getElementById(k); if(el) el.value=state[k]; });
-  recomputeAutoTotals(); render(); saveState(); toast("Reset to defaults");
+  recomputeAutoTotals(); render(); saveState(); fbPushAll(); toast("Reset to defaults");
+}
+
+/* ===== Firebase Realtime sync — live multi-user editing ===== */
+const firebaseConfig = {
+  apiKey: "AIzaSyCLhYNOQtKVg9Aw3JBn2gpMT48sr6kF3-M",
+  authDomain: "project-report-403ec.firebaseapp.com",
+  databaseURL: "https://project-report-403ec-default-rtdb.firebaseio.com",
+  projectId: "project-report-403ec",
+  storageBucket: "project-report-403ec.firebasestorage.app",
+  messagingSenderId: "760062292828",
+  appId: "1:760062292828:web:4382f356ac08244bc3c799"
+};
+let dbRef = null, fbSeeded = false, fbDirty = {}, fbPushTimer = null;
+
+function initFirebase(){
+  if(typeof firebase === "undefined"){ setSyncStatus("offline"); return; }
+  try {
+    firebase.initializeApp(firebaseConfig);
+    dbRef = firebase.database().ref("dashboard/state");
+  } catch(e){ console.warn("Firebase init failed:", e); setSyncStatus("offline"); return; }
+
+  // Live connection indicator
+  firebase.database().ref(".info/connected").on("value", snap=>{
+    setSyncStatus(snap.val() === true ? "live" : "offline");
+  });
+
+  // Subscribe to remote changes -> reflect them on this page instantly
+  dbRef.on("value", snap=>{
+    const remote = snap.val();
+    if(remote == null){
+      // Empty database (first ever load): seed it from this page's current data
+      if(!fbSeeded){ fbSeeded = true; fbPushAll(); }
+      return;
+    }
+    fbSeeded = true;
+    applyRemoteState(remote);
+  }, err=>{ console.warn("Firebase read failed:", err); setSyncStatus("offline"); });
+}
+
+// Apply incoming remote state WITHOUT disturbing the field currently being typed in
+function applyRemoteState(remote){
+  const active = document.activeElement;
+  state = { ...DEFAULT_STATE, ...remote };
+  recomputeAutoTotals();
+  ALL_FIELDS.forEach(k=>{
+    const el = document.getElementById(k);
+    if(!el || el === active) return;            // never overwrite the field in use
+    if(String(el.value) !== String(state[k])) el.value = state[k];
+  });
+  render();
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+}
+
+// Queue a changed field; flush as ONE multi-field update so teammates' other fields aren't clobbered
+function fbPush(key, value){
+  if(!dbRef) return;
+  fbDirty[key] = value;
+  clearTimeout(fbPushTimer);
+  fbPushTimer = setTimeout(()=>{
+    const payload = fbDirty; fbDirty = {};
+    dbRef.update(payload)
+      .then(()=> setSyncStatus("synced"))
+      .catch(e=> setSaveStatus("Sync failed — "+e.message));
+  }, 400);
+}
+
+// Push the entire state (used for seeding the DB and for Reset)
+function fbPushAll(){
+  if(!dbRef) return;
+  const payload = {};
+  ALL_FIELDS.forEach(k=> payload[k] = state[k]);
+  dbRef.set(payload).then(()=> setSyncStatus("synced")).catch(e=> console.warn(e));
+}
+
+function setSyncStatus(mode){
+  const el = document.getElementById("saveStatus");
+  if(!el) return;
+  const t = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  if(mode==="live")          el.textContent = "● Live — connected";
+  else if(mode==="synced")   el.textContent = "● Live — synced · "+t;
+  else if(mode==="offline")  el.textContent = "○ Offline — changes save locally";
 }
 
 function init(){
-  loadState(); bindInputs(); recomputeAutoTotals(); render();
+  loadState(); bindInputs(); recomputeAutoTotals(); render(); initFirebase();
   document.getElementById("downloadBtn").addEventListener("click", generatePPTX);
   document.getElementById("resetBtn").addEventListener("click", resetDefaults);
   window.addEventListener('load', () => {
