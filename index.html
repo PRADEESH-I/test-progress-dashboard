@@ -664,28 +664,28 @@ const MODULES = [
 ];
 
 const DEFAULT_STATE = {
-  weekLabel: "Week of 25 May – 29 May 2026",
+  weekLabel: "Week of 08 June – 12 June 2026",
   businessDaysRemaining: 2,
   subheaderNote: "",
-  lastWeekDateRange: "Until 22 May",
+  lastWeekDateRange: "Until 5 Jun",
 
-  // Per-module status counts (auto: Executed = IP+Pass+Fail)
-  absTotal: 2420, absCreated: 2076, absExecuted: 95, absInProgress: 27, absExecutedPass: 7, absExecutedFail: 61,
-  tlTotal:  1429, tlCreated:  1197, tlExecuted: 50, tlInProgress:  50, tlExecutedPass:  0, tlExecutedFail:  0,
-  payTotal: 292,  payCreated: 249,  payExecuted: 37, payInProgress: 5,  payExecutedPass: 9, payExecutedFail: 23,
-  chrTotal: 110,  chrCreated: 110,  chrExecuted: 0,  chrInProgress: 0,  chrExecutedPass: 0, chrExecutedFail: 0,
-  benTotal: 77,   benCreated: 43,   benExecuted: 0,  benInProgress: 0,  benExecutedPass: 0, benExecutedFail: 0,
-  compTotal: 23,  compCreated: 23,  compExecuted: 0, compInProgress: 0, compExecutedPass: 0, compExecutedFail: 0,
+  // Per-module status counts (Executed = IP+Pass+Fail is auto-computed, not stored here)
+  absTotal: 2420, absCreated: 2420, absInProgress: 190, absExecutedPass: 7,  absExecutedFail: 62,
+  tlTotal:  1217, tlCreated:  1217, tlInProgress:  40,  tlExecutedPass:  90, tlExecutedFail:  30,
+  payTotal: 246,  payCreated: 246,  payInProgress: 18,  payExecutedPass: 33, payExecutedFail: 15,
+  chrTotal: 87,   chrCreated: 87,   chrInProgress: 5,   chrExecutedPass: 30, chrExecutedFail: 0,
+  benTotal: 77,   benCreated: 77,   benInProgress: 0,   benExecutedPass: 2,  benExecutedFail: 0,
+  compTotal: 13,  compCreated: 13,  compInProgress: 0,  compExecutedPass: 0, compExecutedFail: 0,
 
-  // Per-module Jira tickets (lifecycle: New = not started, In Progress = being worked, Resolved = closed)
-  absJiraInProgress: 11, absJiraResolved: 92,
-  absExecLastWeek: 58, absExecWeekTarget: 80, absExecWeekDone: 10,
-  tlJiraInProgress:  0, tlJiraResolved:  0,
-  tlExecLastWeek: 30, tlExecWeekTarget: 40, tlExecWeekDone: 12,
-  payJiraInProgress: 0, payJiraResolved: 23,
-  payExecLastWeek: 11, payExecWeekTarget: 20, payExecWeekDone: 6,
+  // Per-module Jira tickets (Logged total = In Progress + Resolved is auto-computed, not stored here)
+  absJiraInProgress: 6, absJiraResolved: 0,
+  absExecLastWeek: 95, absExecWeekTarget: 300, absExecWeekDone: 164,
+  tlJiraInProgress: 1, tlJiraResolved: 6,
+  tlExecLastWeek: 30, tlExecWeekTarget: 150, tlExecWeekDone: 130,
+  payJiraInProgress: 1, payJiraResolved: 3,
+  payExecLastWeek: 53, payExecWeekTarget: 25, payExecWeekDone: 13,
   chrJiraInProgress: 0, chrJiraResolved: 0,
-  chrExecLastWeek: 0, chrExecWeekTarget: 0, chrExecWeekDone: 0,
+  chrExecLastWeek: 15, chrExecWeekTarget: 30, chrExecWeekDone: 20,
   benJiraInProgress: 0, benJiraResolved: 0,
   benExecLastWeek: 0, benExecWeekTarget: 0, benExecWeekDone: 0,
   compJiraInProgress: 0, compJiraResolved: 0,
