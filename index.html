@@ -163,10 +163,7 @@ textarea{min-height:46px;resize:vertical;line-height:1.4}
   <details class="slide-context-block" open="">
     <summary>SLIDE CONTEXT (week label, status, etc.)</summary>
     <div style="padding:10px 12px;background:#fff;border:1px solid var(--light)">
-      <div class="field-row">
-        <div><label>Week label</label><input type="text" id="weekLabel"></div>
-        <div><label>Business days remaining</label><input type="number" id="businessDaysRemaining" min="0"></div>
-      </div>
+      <div class="field"><label>Week label</label><input type="text" id="weekLabel"></div>
       <div class="field"><label>Subtitle note (optional)</label><input type="text" id="subheaderNote"></div>
       <div class="field-row">
         <div><label>Last-week date range (e.g. "Until 22 May")</label><input type="text" id="lastWeekDateRange"></div>
@@ -438,7 +435,7 @@ textarea{min-height:46px;resize:vertical;line-height:1.4}
     <div class="slide-wrap"><div class="slide" id="slide1Preview">
     <div class="slide-header">
       <h2>Test Script Execution — All Modules</h2>
-      <div class="sub">NYC Health + Hospitals &nbsp;|&nbsp; Week of 25 May – 29 May 2026 &nbsp;|&nbsp; 2 business days remaining</div>
+      <div class="sub">NYC Health + Hospitals &nbsp;|&nbsp; Week of 25 May – 29 May 2026</div>
     </div>
     <div>
       <div class="section-label">WEEKLY EXECUTION CADENCE</div>
@@ -665,7 +662,6 @@ const MODULES = [
 
 const DEFAULT_STATE = {
   weekLabel: "Week of 08 June – 12 June 2026",
-  businessDaysRemaining: 2,
   subheaderNote: "",
   lastWeekDateRange: "Until 5 Jun",
 
@@ -704,7 +700,7 @@ function saveState(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{try{local
 function setSaveStatus(t){const el=document.getElementById("saveStatus");if(el)el.textContent=t}
 function toast(msg,err){const el=document.getElementById("toast");el.textContent=msg;el.classList.toggle("err",!!err);el.classList.add("show");setTimeout(()=>el.classList.remove("show"),err?4000:1800)}
 
-const NUMERIC_KEYS = ["businessDaysRemaining"];
+const NUMERIC_KEYS = [];
 MODULES.forEach(m=>{
   ["Total","Created","Executed",
    "InProgress","ExecutedPass","ExecutedFail",
@@ -822,7 +818,7 @@ function renderSlide1(){
   document.getElementById("slide1Preview").innerHTML = `
     <div class="slide-header">
       <h2>Test Script Execution — All Modules</h2>
-      <div class="sub">NYC Health + Hospitals &nbsp;|&nbsp; ${esc(s.weekLabel)} &nbsp;|&nbsp; ${esc(s.businessDaysRemaining)} business days remaining${s.subheaderNote ? ` &nbsp;|&nbsp; ${esc(s.subheaderNote)}` : ''}</div>
+      <div class="sub">NYC Health + Hospitals &nbsp;|&nbsp; ${esc(s.weekLabel)}${s.subheaderNote ? ` &nbsp;|&nbsp; ${esc(s.subheaderNote)}` : ''}</div>
     </div>
     <div>
       <div class="section-label">WEEKLY EXECUTION CADENCE</div>
@@ -900,7 +896,7 @@ async function generatePPTX(){
       x: 0.5, y: 0.2, w: 12.3, h: 0.42,
       fontSize: 22, fontFace:"Calibri", bold: true, color: NAVY, margin: 0
     });
-    const subH = `NYC Health + Hospitals   |   ${s.weekLabel}   |   ${s.businessDaysRemaining} business days remaining${s.subheaderNote ? `   |   ${s.subheaderNote}` : ''}`;
+    const subH = `NYC Health + Hospitals   |   ${s.weekLabel}${s.subheaderNote ? `   |   ${s.subheaderNote}` : ''}`;
     sl1.addText(subH, { x: 0.5, y: 0.65, w: 12.3, h: 0.28, fontSize: 11, fontFace:"Calibri", color: SLATE, margin: 0 });
 
     sl1.addText("WEEKLY EXECUTION CADENCE", { x: 0.5, y: 1.0, w: 12.3, h: 0.22, fontSize: 10, bold: true, color: TEAL, charSpacing: 3, margin: 0 });
