@@ -148,7 +148,6 @@ textarea{min-height:46px;resize:vertical;line-height:1.4}
     <div class="meta">NYC Health + Hospitals · 6-module tracker (2-slide PPTX)</div>
   </div>
   <div class="actions">
-    <button class="btn btn-ghost" id="resetBtn">Reset to defaults</button>
     <button class="btn btn-primary" id="downloadBtn">⬇ Download 2-Slide PPTX</button>
   </div>
 </header>
@@ -1062,13 +1061,6 @@ async function generatePPTX(){
   }
 }
 
-function resetDefaults(){
-  if(!confirm("Reset all fields to defaults? Saved data will be overwritten.")) return;
-  state = { ...DEFAULT_STATE };
-  ALL_FIELDS.forEach(k=>{ const el=document.getElementById(k); if(el) el.value=state[k]; });
-  recomputeAutoTotals(); render(); saveState(); fbPushAll(); toast("Reset to defaults");
-}
-
 /* ===== Firebase Realtime sync — live multi-user editing ===== */
 const firebaseConfig = {
   apiKey: "AIzaSyCLhYNOQtKVg9Aw3JBn2gpMT48sr6kF3-M",
@@ -1136,13 +1128,6 @@ function fbPush(key, value){
   }, 400);
 }
 
-// Push the entire state (used for seeding the DB and for Reset)
-function fbPushAll(){
-  if(!dbRef) return;
-  const payload = {};
-  ALL_FIELDS.forEach(k=> payload[k] = state[k]);
-  dbRef.set(payload).then(()=> setSyncStatus("synced")).catch(e=> console.warn(e));
-}
 
 function setSyncStatus(mode){
   const el = document.getElementById("saveStatus");
@@ -1156,7 +1141,6 @@ function setSyncStatus(mode){
 function init(){
   loadState(); bindInputs(); recomputeAutoTotals(); render(); initFirebase();
   document.getElementById("downloadBtn").addEventListener("click", generatePPTX);
-  document.getElementById("resetBtn").addEventListener("click", resetDefaults);
   window.addEventListener('load', () => {
     if(typeof PptxGenJS==='undefined'){
       document.getElementById('libBanner').classList.add('show');
