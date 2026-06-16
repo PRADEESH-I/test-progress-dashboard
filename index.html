@@ -1097,8 +1097,11 @@ function initFirebase(){
   dbRef.on("value", snap=>{
     const remote = snap.val();
     if(remote == null){
-      // Empty database (first ever load): seed it from this page's current data
-      if(!fbSeeded){ fbSeeded = true; fbPushAll(); }
+      // DB empty: do NOT auto-seed with defaults. A transient null-fire from .on("value")
+      // (slow/flaky connection, or right after a deploy) would otherwise clobber real data
+      // with DEFAULT_STATE. First real edit populates the DB; applyRemoteState fills any
+      // missing fields from defaults on load, so seeding is unnecessary.
+      setSyncStatus("live");
       return;
     }
     fbSeeded = true;
